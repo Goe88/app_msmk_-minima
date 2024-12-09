@@ -1,4 +1,5 @@
 import 'package:first_app_flutter/models/todo_model.dart';
+import 'package:first_app_flutter/ui/pages/new_page.dart';
 import 'package:flutter/material.dart';
 
 class TodoItemWidget extends StatelessWidget {
@@ -17,6 +18,12 @@ class TodoItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onLongPress:() {
+        Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MyNewPage()),
+            );
+      },
       onTap: () {
         showDialog(
             context: context,

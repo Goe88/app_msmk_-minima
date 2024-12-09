@@ -1,4 +1,5 @@
 import 'package:first_app_flutter/providers/todo_list/todo_list_provider.dart';
+import 'package:first_app_flutter/ui/pages/new_page.dart';
 import 'package:first_app_flutter/ui/widgets/create_todo_widget.dart';
 import 'package:first_app_flutter/ui/widgets/show_todos_widget.dart';
 import 'package:first_app_flutter/ui/widgets/todo_header_widget.dart';
@@ -13,6 +14,10 @@ class TodosPage extends StatelessWidget {
     final todos = context.watch<TodoListProvider>().state.todos;
 
     return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: (){Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MyNewPage()),
+            );}),
       body: ListView(
         children: [
           const SizedBox(height: 70),
