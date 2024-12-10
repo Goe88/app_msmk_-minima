@@ -5,11 +5,36 @@ class MyNewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold( 
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
-       floatingActionButton: FloatingActionButton(onPressed: (){Navigator.pop(context);}),
-      body: Center(
-        child: Text("My item Page"),
+    return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        Navigator.pop(context);
+      }),
+      body: Stack(
+        children: [
+          Container(
+            color: Colors.black,
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: Opacity(
+              opacity: 0.2,
+              child: Image.asset(
+                "assets\images\old.png",
+                fit: BoxFit.cover,
+                height: double.infinity,
+              ),
+            ),
+          ),
+          const Center(
+            child: Text(
+              "My Item Page",
+              style: TextStyle(
+                fontSize: 30,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
